@@ -31,15 +31,12 @@ public class MainProject {
 	//#2
 	public static void annoBisestile(int anno) {
 		if(anno%4 == 0) {
-			if(anno%100 == 0 && anno%400 == 0) {
+			System.out.println("È un anno bisestile");
+		}else if(anno%100 == 0 && anno%400 == 0) {
 				System.out.println("È un anno bisestile");   //1600,2000,2400...
 			}else {
 				System.out.println("Non è un anno bisestile");;
-			}
-		}else {
-			System.out.println("Non è un anno bisestile");
-		}
-		
+		  }
+	    
 	}
-
 }

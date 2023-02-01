@@ -8,21 +8,31 @@ public class MainProject {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		while(true) {
 		System.out.print("Scrivi una parola:");
 		String parola = sc.nextLine();
-		//separaStringa(parola);
+		
+		if(parola.equals(":q")) {
+			System.out.print("FINE");
+			return;
+		}
+		
+		String[] arrParole = parola.split("");
+		
+		String virgola = "";
+		
+		for(int i=0; i<arrParole.length; i++) {
+			if(i == arrParole.length-1) {
+				virgola += arrParole[i];
+			}else {
+				virgola += arrParole[i] + ",";
+			}
+			
+		}
+		System.out.println(virgola);
 
 	}
 	
-	//methods
-	/*public static void separaStringa(String str) {
-		int i = 0;
-		while(i++ < str.length()) {
-			
-		       System.out.print(str.charAt(i) + ",");
-		        
-		};
-		
-	}*/
-
+  }
+	
 }
