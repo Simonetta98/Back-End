@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.SpringBoot.GestionePrenotazioni.model.Edificio;
 import com.SpringBoot.GestionePrenotazioni.repository.EdificioRepository;
 
+
 @Service
 public class EdificioService {
 
@@ -36,6 +37,11 @@ public class EdificioService {
 	
 	public List<Edificio> getEdificioByCitta(String citta){
 		return repo.findEdificioByCitta(citta);
+	}
+	
+	public void printInfo(Long id) {
+		Edificio ed = repo.findById(id).get();
+		System.out.println("INFO EDIFICIO(" + ed.getId_edificio() + "):\n" + ed + "\n" + "POSTAZIONI (" + ed.getPostazioni().size() + "):\n" + ed.getPostazioni());
 	}
 	
 }

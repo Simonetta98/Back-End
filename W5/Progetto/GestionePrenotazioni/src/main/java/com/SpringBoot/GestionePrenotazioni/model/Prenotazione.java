@@ -35,4 +35,5 @@ public class Prenotazione {
 	@ManyToOne
 	@JoinColumn(name = "codice_univoco")
 	private Postazione postazione;
+	
 }

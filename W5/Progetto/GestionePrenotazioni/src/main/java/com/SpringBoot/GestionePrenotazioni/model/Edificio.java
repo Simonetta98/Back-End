@@ -3,7 +3,9 @@ package com.SpringBoot.GestionePrenotazioni.model;
 import java.io.Serializable;
 import java.util.Set;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -14,13 +16,11 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Setter
 @Getter
-@ToString
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Edificio implements Serializable {
@@ -32,6 +32,14 @@ public class Edificio implements Serializable {
 	private String nome_edificio;
 	private String indirizzo;
 	private String citta;
-	@OneToMany(mappedBy = "edificio")
+	@OneToMany(mappedBy = "edificio", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE) 
 	private Set<Postazione> postazioni;
+	
+	@Override
+	public String toString() {
+		return "[ID= " + id_edificio + ", NOME= " + nome_edificio + ", INDIRIZZO= " + indirizzo
+				+ ", CITTA= " + citta + "]";
+	}
+	
+	
 }
