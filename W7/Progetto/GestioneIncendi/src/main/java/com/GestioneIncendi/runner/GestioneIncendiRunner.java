@@ -65,9 +65,7 @@ public class GestioneIncendiRunner implements ApplicationRunner {
 		s2.em.subscribe("emissione_di_dati", pc1);
 		
 		//Così ad ogni cambiamento\emissione di dati, pc1 li riceve ...
-		
-		//s1.setSmokeLevel(3);
-		//s1.setSmokeLevel(5);
+	
 		s1.dataEmission();
 		s2.dataEmission();
 		
@@ -76,16 +74,16 @@ public class GestioneIncendiRunner implements ApplicationRunner {
 		//PROXY pattern
 		/* Quando vi è la presenza di oggetti 'pesanti', che possono richiedere un
 		 * tempo o costo maggiore di inizializzazione, si ricorre al Proxy.
-		 * Il Proxy inizializza un oggetto solo se strettamente richiesto(in questo caso la connessione al server).
+		 * Il Proxy inizializza un oggetto solo se strettamente richiesto(in questo caso il Centro di Controllo e la connessione al server).
 		 * Invece di comunicare direttamente con il server, 
 		 * il client comunica con l'oggetto Proxy che implementa l'interfaccia
-		 * del server e ne fa da sostituto, potendo così controllare le richieste ed
+		 * del server e ne fa da sostituto, potendone così controllare le richieste ed
 		 * eventualmente implementare anche dei processi di sicurezza.
 		 * 
 		 * In questo progetto, ad esempio, l'inizializzazione di un Centro di Controllo e la conseguente connessione iniziale al server 
 		 * avverrà una sola volta (come si può notare dall'output dei due metodi loadData() sotto).
 		 * Dopo il primo loadData(), non verrà più istanziato un altro Centro di Controllo, che sarà ora memorizzato all'interno del Proxy,
-		 * ma avverrà solo il caricamento di dati richiesti.
+		 * ma avverrà solo il caricamento dei dati richiesti.
 		 */
 		
 		
